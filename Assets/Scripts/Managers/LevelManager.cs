@@ -79,13 +79,14 @@ public class LevelManager : Singleton<LevelManager>
         PlayerPrefs.SetInt("Level", LevelNumber);
         PlayerPrefs.SetInt("LevelNumber", DisplayLevelNumber);
         PlayerPrefs.SetInt("Coin", _collectManager.CollectedCoin);
+        PlayerPrefs.Save();
 
         //PlayerPrefs.SetInt("Diamond5Side", _collectManager.CollectedDiamond5Side);
     }
 
     public void LoadLevel()
     {
-        if (PlayerPrefs.HasKey("Diamond"))
+        if (PlayerPrefs.HasKey("Coin"))
         {
             _coin = PlayerPrefs.GetInt("Coin");
             _collectManager.CollectedCoin = _coin;
